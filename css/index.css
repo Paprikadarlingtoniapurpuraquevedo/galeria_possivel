@@ -9,4 +9,21 @@
         margin-right: 400px;
         margin-top: 100px;
     }
+
+    #col-0 li {
+        list-style-type: none;
+        margin-right: 20px;
+        float: right;
+        color: white;
+        text-align: left;
+        text-decoration: none;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: black;
+    }
 }

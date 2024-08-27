@@ -1,9 +1,10 @@
 @media only screen and (min-width: 400px) {
 
     h1 {
-        color: white;
+        color: red;
         font-family: initial;
         text-align: center;
+        margin-right: 400px;
         margin-top: 100px;  
     }
 }

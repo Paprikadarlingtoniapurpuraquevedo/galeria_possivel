@@ -1,4 +1,9 @@
 @media only screen and (min-width: 400px) {
+
+    body {
+        background-image: url('images/kindergarten.jpg');
+        background-size: cover;
+    }
     
     h1 {
         color: black;

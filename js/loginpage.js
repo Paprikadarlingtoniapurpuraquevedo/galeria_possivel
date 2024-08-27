@@ -1,7 +1,7 @@
 var attempt=3
         
         function login(){
-        var username = document.getElementById("email").value;
+        var email = document.getElementById("email").value;
         var password = document.getElementById("password").value;
         
         if( attempt == 0){
@@ -11,7 +11,7 @@ var attempt=3
         return null
         }
 
-        if (username == 'Correio eletrónico' || password == 'Senha' || username == '' || password == ''){
+        if (email == 'Correio eletrónico' || password == 'Senha' || email == '' || password == ''){
         alert ("Por favor não deixe em branco nada.");
         return null
         }
@@ -19,13 +19,13 @@ var attempt=3
         var user = localStorage.getItem("user");
         user = JSON.parse(user);
 
-        if ( username == user.username && password == user.password){
+        if (email == user.email && password == user.password){
         alert ("Pode entrar!");
         window.location = "index.html"
         return false
         }
 
-        else if (username == 'Correio eletrónico' || password == 'Senha' || username == '' || password == ''){
+        else if (email == 'Correio eletrónico' || password == 'Senha' || email == '' || password == ''){
         alert ("Por favor não deixe em branco nada.")
         }
         

@@ -40,3 +40,18 @@ exports.userSignIn = async (req, res) => {
 
     res.json({success: true, user, token})
 }
+
+exports.signedUser = function(req, res, next){
+    let id = req.params.id
+    User.find({_id:id}).then(function(data) {
+        res.status(200).json({
+            status: "success",
+            data: data
+        })
+    }).catch(err=>{
+        res.status(404).json({
+            status: "fail",
+            message: "Falhou" + err
+        })
+    })
+}

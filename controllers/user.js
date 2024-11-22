@@ -70,6 +70,21 @@ exports.signedUser = function(req, res, next){
     })
 }
 
+exports.updateUserById = function(req, res, next){
+    let id = req.params.id
+    User.findByIdAndUpdate(id, req.body, {new: true, runValidators: true}).then(function(data) {
+        res.status(200).json({
+            status: "success",
+            data: data
+        })
+    }).catch(err=>{
+        res.status(404).json({
+            status: "fail",
+            message: "Falhou" + err
+        })
+    })
+}
+
 exports.deleteUserById = function(req, res, next){
     let id = req.params.id
     User.findByIdAndDelete(id).then(function(data) {

@@ -69,3 +69,18 @@ exports.signedUser = function(req, res, next){
         })
     })
 }
+
+exports.deleteUserById = function(req, res, next){
+    let id = req.params.id
+    User.findByIdAndDelete(id).then(function(data) {
+        res.status(200).json({
+            status: "success",
+            data: null
+        })
+    }).catch(err=>{
+        res.status(404).json({
+            status: "fail",
+            message: "Falhou" + err
+        })
+    })
+}

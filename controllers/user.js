@@ -1,5 +1,3 @@
-const bcrypt = require('bcrypt')
-const salt = require('salt')
 const jwt = require('jsonwebtoken')
 
 const User = require('../models/user')

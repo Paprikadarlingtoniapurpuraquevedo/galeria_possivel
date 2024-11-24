@@ -9,7 +9,7 @@ const { validationResult } = require('express-validator')
 router.delete('/user/:id', deleteUserById)
 router.get('/users', getUsers)
 router.get('/user/:id', signedUser)
-router.patch('/user/:id', updateUserById, validateUserSignUp)
+router.patch('/user/:id', updateUserById, validateUserSignUp, userValidation)
 router.post('/create-user', validateUserSignUp, userValidation, createUser)
 router.post('/sign-in', validateUserSignIn, userValidation, userSignIn)
 router.post('/create-post', isAuth, (req, res) => {

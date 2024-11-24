@@ -1,4 +1,3 @@
-const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 const User = require('../models/user')
@@ -71,19 +70,21 @@ exports.signedUser = function(req, res, next){
     })
 }
 
-exports.updateUserById = function(req, res, next){
-    let id = req.params.id
-    User.findByIdAndUpdate(id, req.body, {new: true, runValidators: true}).then(function(data) {
-        res.status(200).json({
-            status: "success",
-            data: data
-        })
-    }).catch(err=>{
-        res.status(404).json({
-            status: "fail",
-            message: "Falhou" + err
-        })
+exports.updateUserById = async (req, res) => {
+const {fullname, email, password} = req.body
+const updatedUser = await User.newPassword(password)
+if(!updatedUser)
+    return res.json({
+        success: false,
+        message: 'Utilizador não atualizado'
     })
+ const user = await User({
+    fullname,
+    email,
+    password
+})
+await user.save()
+res.json(user)
 }
 
 exports.deleteUserById = function(req, res, next){

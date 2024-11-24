@@ -20,7 +20,7 @@ const test = async (email, password) => {
     console.log(result)
 }
 
-test('bruxafeia@adeus.com', 'abracadabrapédecabra')
+test('email@teste.com', 'senhadeteste')
 
 app.get('/test', (req, res) => {
     res.send('Olá')

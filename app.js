@@ -5,6 +5,8 @@ const mongoose = require('mongoose')
 
 require('./models/db')
 
+const bookRouter = require('./routes/book')
+
 const userRouter = require('./routes/user')
 
 const User = require('./models/user')
@@ -12,6 +14,7 @@ const User = require('./models/user')
 const app = express()
 
 app.use(express.json())
+app.use(bookRouter)
 app.use(userRouter)
 
 const test = async (email, password) => {

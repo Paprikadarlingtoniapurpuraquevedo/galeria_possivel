@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    permission: {}
+    permission: {},
 })
 
 userSchema.pre('save', function(next) {

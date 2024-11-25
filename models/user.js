@@ -53,15 +53,4 @@ userSchema.statics.isThisEmailInUse = async function(email) {
     }
 }
 
-userSchema.statics.newPassword = async function(password) {
-    if(!password) throw new Error('Falta a senha.')
-
-    try {
-        const result = await bcrypt.compare(password, this.password)
-        return result
-    } catch (error) {
-        console.log('Falha na comparação de senhas.', error.message)
-    }   
-}
-
 module.exports = mongoose.model('User', userSchema)

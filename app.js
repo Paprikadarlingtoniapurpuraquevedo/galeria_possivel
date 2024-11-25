@@ -7,6 +7,8 @@ require('./models/db')
 
 const bookRouter = require('./routes/book')
 
+const bookrequestRouter = require('./routes/bookrequest')
+
 const genreRouter = require('./routes/genre')
 
 const userRouter = require('./routes/user')
@@ -17,6 +19,7 @@ const app = express()
 
 app.use(express.json())
 app.use(bookRouter)
+app.use(bookrequestRouter)
 app.use(genreRouter)
 app.use(userRouter)
 

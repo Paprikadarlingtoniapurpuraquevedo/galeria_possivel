@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 
 const User = require('../models/user')
 exports.createUser = async (req, res) => {
-const {fullname, email, password} = req.body
+const {fullname, birthdate, email, password} = req.body
 const isNewUser = await User.isThisEmailInUse(email)
 if(!isNewUser)
     return res.json({
@@ -11,6 +11,7 @@ if(!isNewUser)
     })
  const user = await User({
     fullname,
+    birthdate,
     email,
     password
 })

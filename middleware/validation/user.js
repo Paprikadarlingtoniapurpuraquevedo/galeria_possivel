@@ -5,6 +5,8 @@ exports.validateUserSignUp = [
     withMessage('Por favor indicar nome.').isString().
     withMessage('Nome inválido.').isLength({min: 6}).
     withMessage('O nome terá pelo menos 6 caracteres.'),
+    check('birthdate').trim().not().isEmpty().
+    withMessage('Por favor indique a data do seu nascimento'),
     check('email').normalizeEmail().isEmail().
     withMessage('Não é email.'),
     check('password').trim().not().isEmpty().

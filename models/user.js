@@ -6,15 +6,23 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    birthdate: {
+        type: Date,
+        required: true
+    },
     email: {
         type: String,
+        lowercase: true,
         required: true,
         unique: true
     },
     password: {
         type: String,
         required: true
-    }
+    },
+    created: Date,
+    passwordChangedAt: Date,
+    permission: {}
 })
 
 userSchema.pre('save', function(next) {

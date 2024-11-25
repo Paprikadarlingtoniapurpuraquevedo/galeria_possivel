@@ -20,8 +20,14 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    created: Date,
-    passwordChangedAt: Date,
+    created: {
+        type: Date,
+        default: Date.now
+    },
+    passwordChangedAt: {
+        type: Date,
+        default: Date.now
+    },
     permission: {}
 })
 

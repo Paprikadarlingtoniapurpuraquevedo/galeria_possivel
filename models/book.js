@@ -21,7 +21,10 @@ var bookSchema = new Schema({
         minlength: 2,
         maxlength: 1000
     },
-    GenreId: {},
+    GenreId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Genre'
+    },
     isRequestable: {
         type: String,
         require: true

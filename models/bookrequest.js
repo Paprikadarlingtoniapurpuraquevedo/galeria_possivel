@@ -14,7 +14,10 @@ var bookrequestSchema = new Schema({
     returnDate: {
         type: Date
     },
-    GenreId: {},
+    GenreId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Genre'
+    },
     status: {},
     permission: {},
 })

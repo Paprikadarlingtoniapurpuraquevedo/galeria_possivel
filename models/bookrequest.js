@@ -5,7 +5,8 @@ var bookrequestSchema = new Schema({
     readerId: {},
     bookId: {},
     requestDate: {
-        type: Date
+        type: Date,
+        default: Date.now
     },
     expectedReturnDate: {
         type: Date

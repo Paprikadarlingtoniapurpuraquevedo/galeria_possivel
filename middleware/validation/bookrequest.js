@@ -1,3 +1,6 @@
 const {check, validationResult} = require('express-validator')
 
-exports.validateBookRequest = []
+exports.validateBookRequest = [
+    check('expectedReturnDate').trim().not().isEmpty().
+    withMessage('Atribuir prazo para a devolução')
+]

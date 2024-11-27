@@ -23,7 +23,6 @@ var bookSchema = new Schema({
     },
     GenreId: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
         ref: 'Genre'
     },
     isRequestable: {

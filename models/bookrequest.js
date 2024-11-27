@@ -4,12 +4,10 @@ var Schema = mongoose.Schema
 var bookrequestSchema = new Schema({
     readerId: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
         ref: 'User'
     },
     bookId: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
         ref: 'Book'
     },
     requestDate: {
@@ -25,7 +23,6 @@ var bookrequestSchema = new Schema({
     },
     GenreId: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
         ref: 'Genre'
     },
     status: {

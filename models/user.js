@@ -34,11 +34,6 @@ const userSchema = new mongoose.Schema({
         enum: ['admin', 'reader'],
         default: 'reader'
     },
-    permission: {
-        type: String,
-        enum: ['admin', 'reader'],
-        default: 'reader'
-    },
 })
 
 userSchema.pre('save', function(next) {

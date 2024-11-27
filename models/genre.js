@@ -4,9 +4,13 @@ var Schema = mongoose.Schema
 var genreSchema = new Schema({
     name: {
         type: String,
-        require: true
+        required: true
     },
-    permission: {},
+    permission: {
+        type: String,
+        enum: ['admin', 'reader'],
+        default: 'reader'
+    },
 })
 
 module.exports = mongoose.model('Genre', genreSchema)

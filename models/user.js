@@ -31,13 +31,13 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         required: true,
-        enum: [],
-        default: ''
+        enum: ['admin', 'reader'],
+        default: 'reader'
     },
     permission: {
         type: String,
-        enum: [],
-        default: ''
+        enum: ['admin', 'reader'],
+        default: 'reader'
     },
 })
 

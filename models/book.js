@@ -4,11 +4,11 @@ var Schema = mongoose.Schema
 var bookSchema = new Schema({
     author: {
         type: String,
-        require: true
+        required: true
     },
     title: {
         type: String,
-        require: true
+        required: true
     },
     publisher: {
         type: String
@@ -23,18 +23,19 @@ var bookSchema = new Schema({
     },
     GenreId: {
         type: mongoose.Schema.Types.ObjectId,
+        required: true,
         ref: 'Genre'
     },
     isRequestable: {
         type: String,
         required: true,
-        enum: [],
-        default: ''
+        enum: ['Sim', 'Não'],
+        default: 'Sim'
     },
     permission: {
         type: String,
-        enum: [],
-        default: ''
+        enum: ['admin', 'reader'],
+        default: 'reader'
     },
 })
 

@@ -9,6 +9,6 @@ bookRouter.delete('/book/:id', deleteBookById)
 bookRouter.get('/books', getBooks)
 bookRouter.get('/book/:id', getBookById)
 bookRouter.patch('/book/:id', updateBookById)
-bookRouter.post('/create-book', createBook, validateBook)
+bookRouter.post('/create-book', createBook, validateBook, validationResult)
 
 module.exports = bookRouter

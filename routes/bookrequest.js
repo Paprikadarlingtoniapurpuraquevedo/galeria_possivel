@@ -9,6 +9,6 @@ bookrequestRouter.delete('/bookrequest/:id', deleteBookRequestById)
 bookrequestRouter.get('/bookrequests', getBookRequests)
 bookrequestRouter.get('/bookrequest/:id', getBookRequestById)
 bookrequestRouter.patch('/bookrequest/:id', updateBookRequestById)
-bookrequestRouter.post('/create-bookrequest', createBookRequest, validateBookRequest)
+bookrequestRouter.post('/create-bookrequest', createBookRequest, validateBookRequest, validationResult)
 
 module.exports = bookrequestRouter

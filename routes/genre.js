@@ -9,6 +9,6 @@ genreRouter.delete('/genre/:id', deleteGenreById)
 genreRouter.get('/genres', getGenres)
 genreRouter.get('/genre/:id', getGenreById)
 genreRouter.patch('/genre/:id', updateGenreById)
-genreRouter.post('/create-genre', createGenre, validateGenre)
+genreRouter.post('/create-genre', createGenre, validateGenre, validationResult)
 
 module.exports = genreRouter

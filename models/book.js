@@ -33,8 +33,8 @@ var bookSchema = new Schema({
     },
     permission: {
         type: String,
-        enum: ['admin', 'reader'],
-        default: 'reader'
+        enum: ['admin', 'user'],
+        default: 'user'
     },
 })
 

@@ -27,9 +27,15 @@ var bookSchema = new Schema({
     },
     isRequestable: {
         type: String,
-        require: true
+        required: true,
+        enum: [],
+        default: ''
     },
-    permission: {},
+    permission: {
+        type: String,
+        enum: [],
+        default: ''
+    },
 })
 
 module.exports = mongoose.model('Book', bookSchema)

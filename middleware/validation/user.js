@@ -18,7 +18,9 @@ exports.validateUserSignUp = [
             throw new Error('Senhas não coincidentes, tentar de novo.')
         }
         return true
-    })
+    }),
+    check('role').trim().not().isEmpty().
+    withMessage('Indique a função desempenhada'),
 ]
 
 exports.userValidation = (req, res, next) => {

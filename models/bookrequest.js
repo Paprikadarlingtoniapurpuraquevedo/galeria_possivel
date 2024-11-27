@@ -18,8 +18,17 @@ var bookrequestSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Genre'
     },
-    status: {},
-    permission: {},
+    status: {
+        type: String,
+        required: true,
+        enum: [],
+        default: ''
+    },
+    permission: {
+        type: String,
+        enum: [],
+        default: ''
+    },
 })
 
 module.exports = mongoose.model('Book Request', bookrequestSchema)

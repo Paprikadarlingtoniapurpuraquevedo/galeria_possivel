@@ -28,7 +28,17 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    permission: {},
+    role: {
+        type: String,
+        required: true,
+        enum: [],
+        default: ''
+    },
+    permission: {
+        type: String,
+        enum: [],
+        default: ''
+    },
 })
 
 userSchema.pre('save', function(next) {

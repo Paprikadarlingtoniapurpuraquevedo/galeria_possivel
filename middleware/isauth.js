@@ -31,9 +31,9 @@ exports.isAuth = async (req, res, next) => {
 }
 
 exports.isAdmin = (req, res, next)=>{
-    if(req.user.role === user){
-        return next(new ErrorResponse('Apenas para o Administrador', 401))
+    if(req.user.role === "user"){
+        res.status(401).json({sucess: false, message: 'Acesso negado!'})
     }
 
-    next()
+    next();
 }

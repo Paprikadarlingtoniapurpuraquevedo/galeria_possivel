@@ -7,7 +7,7 @@ const {isAuth, isAdmin} = require('../middleware/isauth')
 const { validationResult } = require('express-validator')
 
 router.delete('/user/:id', deleteUserById)
-router.get('/users', getUsers, isAdmin, isAuth)
+router.get('/users', isAuth, isAdmin, getUsers)
 router.get('/user/:id', signedUser)
 router.patch('/user/:id', updateUserById, validateUserSignUp, userValidation, validationResult)
 router.post('/create-user', validateUserSignUp, userValidation, createUser, validationResult)

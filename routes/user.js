@@ -11,7 +11,7 @@ router.get('/users', isAuth, isAdmin, getUsers)
 router.get('/user/:id', signedUser)
 router.patch('/user/:id', updateUserById, validateUserSignUp, userValidation, validationResult)
 router.post('/create-user', validateUserSignUp, userValidation, createUser, validationResult)
-router.post('/sign-in', validateUserSignIn, userValidation, userSignIn, validationResult)
+router.post('/login', validateUserSignIn, userValidation, userSignIn, validationResult)
 router.post('/create-post', isAuth, (req, res) => {
     res.send('Rota secreta, bu!')
 })

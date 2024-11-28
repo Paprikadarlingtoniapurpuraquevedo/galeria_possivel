@@ -27,7 +27,6 @@ var bookSchema = new Schema({
     },
     isRequestable: {
         type: String,
-        required: true,
         enum: ['Sim', 'Não'],
         default: 'Sim'
     },

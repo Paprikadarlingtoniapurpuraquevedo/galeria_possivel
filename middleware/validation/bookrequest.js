@@ -1,14 +1,14 @@
 const {check, validationResult} = require('express-validator')
 
 exports.validateBookRequest = [
-    check('readerId').trim().not().isEmpty().
-    withMessage('Indicar o nome do leitor'),
-    check('bookId').trim().not().isEmpty().
-    withMessage('Indicar o título do livro'),
     check('expectedReturnDate').trim().not().isEmpty().
-    withMessage('Atribuir prazo para a devolução'),
-    check('genreId').trim().not().isEmpty().
-    withMessage('Indicar o género literário'),
-    check('status').trim().not().isEmpty().
-    withMessage('Indicar o estado')
+    withMessage('Atribuir prazo para a devolução')
 ]
+
+exports.bookrequestValidation = (req, res, next) => {
+    const result = validationResult(req).array()
+    if(!result.length) return next()
+
+    const error = result[0].msg
+    res.json({success: false, message: error})
+}

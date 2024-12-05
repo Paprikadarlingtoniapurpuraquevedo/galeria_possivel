@@ -5,7 +5,7 @@ const {createUser, deleteUserById, getUsers, updateUserById, userSignIn, signedU
 const {createUserAdmin} = require('../controllers/userAdmin')
 const {validateUserSignUp, userValidation, validateUserSignIn} = require('../middleware/validation/user')
 const {userAdminValidation, validateUserAdminSignUp} = require('../middleware/validation/userAdmin')
-const {isAuth, isAdmin} = require('../middleware/isauth')
+const {forgotPassword, isAuth, isAdmin, resetPassword} = require('../middleware/isauth')
 const { validationResult } = require('express-validator')
 
 router.delete('/user/:id', isAuth, isAdmin, deleteUserById)
@@ -14,7 +14,9 @@ router.get('/user/:id', isAuth, isAdmin, signedUser)
 router.patch('/user/:id',  isAuth, isAdmin, validateUserSignUp, userValidation, updateUserById)
 router.post('/create-user', validateUserSignUp, userValidation, createUser)
 router.post('/create-user-admin', isAuth, isAdmin, validateUserAdminSignUp, userAdminValidation, createUserAdmin)
+router.post('/forgot-password', forgotPassword)
 router.post('/login', validateUserSignIn, userValidation, userSignIn)
+router.post('/reset-password', resetPassword)
 router.post('/create-post', isAuth, (req, res) => {
     res.send('Rota secreta, bu!')
 })

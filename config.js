@@ -22,8 +22,8 @@ var config = {
     smtp: {
         host: process.env.SMTP_HOST || 'sandbox.smtp.mailtrap.io',
         port: process.env.SMTP_PORT || 2525,
-        user: process.env.SMTP_USER || 'user',
-        pass: process.env.SMTP_PASS || 'pass'
+        user: process.env.EMAIL_USER || 'user',
+        pass: process.env.EMAIL_PASS || 'pass'
     }
 };
 module.exports = config;

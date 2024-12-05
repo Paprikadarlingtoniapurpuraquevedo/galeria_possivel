@@ -1,29 +1,26 @@
-const nodemailer = require('nodemailer')
-const config = require('../config')
-
+const nodemailer = require('nodemailer');
+const config = require('../config');
+ 
 var sendEmail = async function(options){
     const transporter = nodemailer.createTransport({
         host: config.smtp.host,
         port: config.smtp.port,
-        auth:{
+        auth: {
             user: config.smtp.user,
             pass: config.smtp.pass
         }
-    })
-    console.log({
-        host: config.smtp.host,
-        port: config.smtp.port,
-        auth:{
-            user: config.smtp.user,
-            pass: config.smtp.pass
-        }
-    })
+    });
+ 
     const mailOptions = {
-        from: '<testmail>no-reply',
+        from: '<noreply@test.pt>no-reply',
         to: options.to,
         subject: options.subject,
-        text: options.message
-    }
-    await transporter.sendMail(mailOptions)
+        text: options.text
+    };
+ 
+    await transporter.sendMail(mailOptions);
 }
-module.exports = {sendEmail}
+ 
+module.exports = {
+    sendEmail
+};

@@ -52,7 +52,7 @@ exports.forgotPassword = async (req, res, next)=>{
     user.passwordResetExpires = Date.now() + 3600000;
 
     await user.save({validateBeforeSave : false});
-    const resetUrl = `http://${req.headers.host}/auth/reset-password?token=${token}`;
+    const resetUrl = `http://${req.headers.host}/user/reset-password?token=${token}`;
     const mailOptions = {
         from: process.env.EMAIL_USER,
         to: user.email,

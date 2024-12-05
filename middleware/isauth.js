@@ -59,8 +59,7 @@ exports.forgotPassword = async (req, res, next)=>{
         subject: 'Password Reset Request',
         html: `
         <p>You requested a password reset. Click the link below to reset your password:</p>
-        <a href="${resetUrl}">${resetUrl}</a>
-      `,
+        <a href="${resetUrl}">${resetUrl}</a>`,
     };
     try {
         await emailModule.sendEmail(mailOptions);

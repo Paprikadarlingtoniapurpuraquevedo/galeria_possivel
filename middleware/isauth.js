@@ -100,7 +100,7 @@ exports.resetPassword = async (req, res, next)=>{
   };
 
   try {
-    await transporter.sendEmail(mailOptions);
+    await emailModule.sendEmail(mailOptions);
     res.json({ message: 'Password reset successful' });
   } catch (err) {
     console.error('Failed to send password reset confirmation email:', err);

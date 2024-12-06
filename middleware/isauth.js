@@ -53,14 +53,12 @@ exports.forgotPassword = async (req, res, next)=>{
     user.passwordResetExpires = Date.now() + 3600000;
 
     await user.save({validateBeforeSave : false});
-    const resetUrl = `http://${req.headers.host}/user/reset-password?token=${token}`;
+    const resetUrl = `${req.headers.host}/reset-password?token=${token}`;
     const mailOptions = {
         from: process.env.EMAIL_USER,
         to: user.email,
         subject: 'Password Reset Request',
-        text: `
-        <p>You requested a password reset. Click the link below to reset your password:</p>
-        <a href="${resetUrl}">${resetUrl}</a>`,
+        text: `You requested a password reset. Click the link below to reset your password: ${resetUrl}`,
     };
     try {
         await emailModule.sendEmail(mailOptions);

@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const emailModule = require('../modules/email')
+const { text } = require('stream/consumers')
 
 exports.isAuth = async (req, res, next) => {
     if(req.headers && req.headers.authorization){
@@ -57,7 +58,7 @@ exports.forgotPassword = async (req, res, next)=>{
         from: process.env.EMAIL_USER,
         to: user.email,
         subject: 'Password Reset Request',
-        html: `
+        text: `
         <p>You requested a password reset. Click the link below to reset your password:</p>
         <a href="${resetUrl}">${resetUrl}</a>`,
     };

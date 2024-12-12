@@ -34,6 +34,12 @@ const userSchema = new mongoose.Schema({
         enum: ['admin', 'user'],
         default: 'user'
     },
+    passwordResetToken: {
+        type: String
+    }, 
+    passwordResetExpires: {
+        type: Date
+    }
 })
 
 userSchema.pre('save', function(next) {

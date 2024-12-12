@@ -35,3 +35,23 @@ exports.validateUserSignIn = [
     check('password').trim().not().isEmpty().
     withMessage('Preencher com email e senha.')
 ]
+
+exports.validateForgotPassword = [
+    check('email').normalizeEmail().isEmail().
+    withMessage('Preencher com email.')
+]
+
+exports.validateResetPassword = [
+    check('email').normalizeEmail().isEmail().
+    withMessage('Não é email.'),
+    check('password').trim().not().isEmpty().
+    withMessage('Senha não colocada').
+    isLength({min: 6}).
+    withMessage('A senha terá pelo menos 6 caracteres.'),
+    check('confirmpassword').trim().not().isEmpty().custom((value, {req}) => {
+        if(value !== req.body.password) {
+            throw new Error('Senhas não coincidentes, tentar de novo.')
+        }
+        return true
+    })
+]

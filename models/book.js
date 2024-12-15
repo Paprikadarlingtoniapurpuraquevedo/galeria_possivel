@@ -21,17 +21,9 @@ var bookSchema = new Schema({
         minlength: 2,
         maxlength: 1000
     },
-    GenreId: [{
-        name: {
-            type: String,
-            required: true
-        },
-        permission: {
-            type: String,
-            enum: ['admin', 'user'],
-            default: 'user'
-        },
-    }],
+    genreId: {
+        name: mongoose.Schema.Types.ObjectId,
+    },
     isRequestable: {
         type: String,
         enum: ['Sim', 'Não'],

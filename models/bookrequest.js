@@ -3,10 +3,12 @@ const { permission } = require('process')
 var Schema = mongoose.Schema
 var bookrequestSchema = new Schema({
     readerId: {
-        fullname: mongoose.Schema.Types.ObjectId
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     },
     bookId: {
-        title: mongoose.Schema.Types.ObjectId
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Book'
     },
     requestDate: {
         type: Date,

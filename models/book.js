@@ -31,7 +31,6 @@ var bookSchema = new Schema({
             enum: ['admin', 'user'],
             default: 'user'
         },
-
     }],
     isRequestable: {
         type: String,
